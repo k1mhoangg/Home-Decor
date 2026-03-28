@@ -1,6 +1,7 @@
 -- ==========================================
 -- TABLE: about_settings (chỉ 1 record)
 -- ==========================================
+USE HomeDecor;
 CREATE TABLE IF NOT EXISTS about_settings (
     id INT PRIMARY KEY DEFAULT 1,
     banner_image VARCHAR(255) DEFAULT 'images/sample.jpg',
@@ -75,9 +76,9 @@ INSERT INTO about_advantages (content, display_order) VALUES
 -- ==========================================
 -- ALTER TABLE: add thumbnail columns (nếu chưa có)
 -- ==========================================
-ALTER TABLE about_settings 
-ADD COLUMN IF NOT EXISTS banner_image_thumb VARCHAR(255) NULL AFTER banner_image,
-ADD COLUMN IF NOT EXISTS vision_image_thumb VARCHAR(255) NULL AFTER vision_image;
+-- ALTER TABLE about_settings 
+-- ADD COLUMN IF NOT EXISTS banner_image_thumb VARCHAR(255) NULL AFTER banner_image,
+-- ADD COLUMN IF NOT EXISTS vision_image_thumb VARCHAR(255) NULL AFTER vision_image;
 
-ALTER TABLE about_decor_images 
-ADD COLUMN IF NOT EXISTS image_url_thumb VARCHAR(255) NULL AFTER image_url;
+-- ALTER TABLE about_decor_images 
+-- ADD COLUMN IF NOT EXISTS image_url_thumb VARCHAR(255) NULL AFTER image_url;
