@@ -46,6 +46,8 @@ class AuthController
             exit;
         }
 
+        session_regenerate_id(true);
+
         // set session user (admin)
         $_SESSION['user'] = [
             'id' => $user->getId(),
@@ -61,9 +63,34 @@ class AuthController
     // Logout admin
     public function logout()
     {
-        Session::start();
-        unset($_SESSION['user']);
-        Session::setFlash('success', 'Bạn đã đăng xuất.');
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $_SESSION = [];
+
+        session_destroy();
+
+        setcookie(
+            session_name(),
+            '',
+            time() - 3600,
+            '/',
+            '',
+            isset($_SERVER['HTTPS']),
+            true
+        );
+
+        setcookie(
+            'flash',
+            json_encode([
+                'type' => 'success',
+                'message' => 'Bạn đã đăng xuất.'
+            ]),
+            time() + 5,
+            '/'
+        );
+
         header('Location: /admin/login');
         exit;
     }

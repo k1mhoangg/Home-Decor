@@ -129,6 +129,9 @@ class AuthController
         // set session user
         if (session_status() === PHP_SESSION_NONE)
             session_start();
+
+
+        session_regenerate_id(true);
         $_SESSION['user'] = [
             'id' => $user->getId(),
             'username' => $user->getUsername(),
@@ -147,10 +150,34 @@ class AuthController
     // Logout
     public function logout()
     {
-        if (session_status() === PHP_SESSION_NONE)
+        if (session_status() === PHP_SESSION_NONE) {
             session_start();
-        unset($_SESSION['user']);
-        $_SESSION['flash'] = ['type' => 'success', 'message' => 'Bạn đã đăng xuất.'];
+        }
+
+        $_SESSION = [];
+
+        session_destroy();
+
+        setcookie(
+            session_name(),
+            '',
+            time() - 3600,
+            '/',
+            '',
+            isset($_SERVER['HTTPS']),
+            true
+        );
+
+        setcookie(
+            'flash',
+            json_encode([
+                'type' => 'success',
+                'message' => 'Bạn đã đăng xuất.'
+            ]),
+            time() + 5,
+            '/'
+        );
+
         header('Location: /');
         exit;
     }
