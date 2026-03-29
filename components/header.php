@@ -17,7 +17,6 @@ $current_path = parse_url($current_uri, PHP_URL_PATH);
     <nav class="main-nav">
       <a href="/" class="<?php echo ($current_path === '/' || $current_path === '') ? 'active' : ''; ?>">Trang chủ</a>
       <a href="/about" class="<?php echo ($current_path === '/about') ? 'active' : ''; ?>">Giới thiệu</a>
-      <a href="/services" class="<?php echo ($current_path === '/services') ? 'active' : ''; ?>">Dịch vụ</a>
       <a href="/pricing" class="<?php echo ($current_path === '/pricing') ? 'active' : ''; ?>">Bảng giá</a>
       <a href="/contact" class="<?php echo ($current_path === '/contact') ? 'active' : ''; ?>">Liên hệ</a>
       <a href="/faq" class="<?php echo ($current_path === '/faq') ? 'active' : ''; ?>">Hỏi đáp</a>
@@ -54,7 +53,6 @@ $current_path = parse_url($current_uri, PHP_URL_PATH);
       <nav class="mobile-nav">
         <a href="/" class="<?php echo ($current_path === '/' || $current_path === '') ? 'active' : ''; ?>">Trang chủ</a>
         <a href="/about" class="<?php echo ($current_path === '/about') ? 'active' : ''; ?>">Giới thiệu</a>
-        <a href="/services" class="<?php echo ($current_path === '/services') ? 'active' : ''; ?>">Dịch vụ</a>
         <a href="/pricing" class="<?php echo ($current_path === '/pricing') ? 'active' : ''; ?>">Bảng giá</a>
         <a href="/contact" class="<?php echo ($current_path === '/contact') ? 'active' : ''; ?>">Liên hệ</a>
         <a href="/faq" class="<?php echo ($current_path === '/faq') ? 'active' : ''; ?>">Hỏi đáp</a>

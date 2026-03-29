@@ -1,5 +1,4 @@
 -- Bảng cài đặt trang liên hệ
-USE HomeDecor;
 CREATE TABLE IF NOT EXISTS contact_settings (
     id INT AUTO_INCREMENT PRIMARY KEY,
     -- Thông tin công ty
