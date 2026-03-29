@@ -1,4 +1,5 @@
 -- Create FAQs table with CASCADE
+Use HomeDecor;
 CREATE TABLE IF NOT EXISTS faqs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     question TEXT NOT NULL,
@@ -9,9 +10,12 @@ CREATE TABLE IF NOT EXISTS faqs (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     INDEX idx_user_id (user_id),
     INDEX idx_is_published (is_published),
-    INDEX idx_created_at (created_at),
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    INDEX idx_created_at (created_at)
+    -- FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ALTER TABLE faqs
+ADD CONSTRAINT fk_faqs_user_id FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
 -- Insert sample FAQs (published)
 INSERT INTO faqs (question, answer, user_id, is_published) VALUES
