@@ -32,6 +32,7 @@ spl_autoload_register(function (string $class) {
         'Core\\' => BASE_PATH . 'Core/',
         'Controller\\' => BASE_PATH . 'Controller/',
         'Model\\' => BASE_PATH . 'Model/',
+        'Middleware\\' => BASE_PATH . 'Core/Middleware/',
     ];
 
     // Duyệt qua từng namespace để tìm match

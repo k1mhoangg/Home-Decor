@@ -103,20 +103,22 @@ function resizeImage($sourcePath, $targetPath, $maxWidth = 1920, $maxHeight = 10
     // Calculate new dimensions - maintain aspect ratio
     // IMPORTANT: Only downscale, NEVER upscale (to prevent blurry images)
     $ratio = min($maxWidth / $originalWidth, $maxHeight / $originalHeight);
-    
+
     // If image is smaller than max dimensions, keep original size (no upscaling)
     if ($originalWidth <= $maxWidth && $originalHeight <= $maxHeight) {
         $newWidth = $originalWidth;
         $newHeight = $originalHeight;
     } else {
         // Only downscale if image is larger than max dimensions
-        $newWidth = (int)($originalWidth * $ratio);
-        $newHeight = (int)($originalHeight * $ratio);
+        $newWidth = (int) ($originalWidth * $ratio);
+        $newHeight = (int) ($originalHeight * $ratio);
     }
-    
+
     // Ensure minimum dimensions (don't make too small)
-    if ($newWidth < 100) $newWidth = 100;
-    if ($newHeight < 100) $newHeight = 100;
+    if ($newWidth < 100)
+        $newWidth = 100;
+    if ($newHeight < 100)
+        $newHeight = 100;
 
     // Create image resource from source
     switch ($mimeType) {
@@ -168,7 +170,7 @@ function resizeImage($sourcePath, $targetPath, $maxWidth = 1920, $maxHeight = 10
             break;
         case 'image/png':
             // PNG quality is 0-9, convert from 0-100
-            $pngQuality = (int)(9 - ($quality / 100) * 9);
+            $pngQuality = (int) (9 - ($quality / 100) * 9);
             $result = imagepng($newImage, $targetPath, $pngQuality);
             break;
         case 'image/gif':
@@ -184,5 +186,11 @@ function resizeImage($sourcePath, $targetPath, $maxWidth = 1920, $maxHeight = 10
     imagedestroy($newImage);
 
     return $result;
+}
+
+// TODO: Add CRSF field generation and validation functions for better security in forms
+function crsf_field()
+{
+    return;
 }
 ?>

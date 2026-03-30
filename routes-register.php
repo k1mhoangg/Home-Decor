@@ -54,8 +54,12 @@ $router->addRoute('POST', '/admin/login', 'Admin/AuthController@login');
 $router->addRoute('GET', '/admin/logout', 'Admin/AuthController@logout');
 
 // Admin routes (Controller\Admin)
-$router->addRoute('GET', '/admin', 'Admin/AdminController@index');
-$router->addRoute('GET', '/admin/users', 'Admin/AdminController@listUsers');
+$router->group('/admin', ['AuthMiddleware', 'RoleMiddleware'], function () use ($router) {
+    $router->get('', 'Admin/AdminController@index');
+    $router->get('/users', 'Admin/AdminController@listUsers');
+});
+// $router->addRoute('GET', '/admin', 'Admin/AdminController@index');
+// $router->addRoute('GET', '/admin/users', 'Admin/AdminController@listUsers');
 $router->addRoute('GET', '/admin/users/create', 'Admin/AdminController@createUser');
 $router->addRoute('GET', '/admin/users/edit', 'Admin/AdminController@editUser');
 $router->addRoute('POST', '/admin/users/save', 'Admin/AdminController@saveUser');
