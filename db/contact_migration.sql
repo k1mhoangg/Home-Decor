@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS contact_settings (
     hotline VARCHAR(50) DEFAULT '0904706666',
     hotline_2 VARCHAR(50) DEFAULT '0904830050',
     email VARCHAR(100) DEFAULT 'homedecor0383@gmail.com',
-    address TEXT DEFAULT 'Trường Đại học Bách Khoa – ĐHQG‑HCM, 268 Lý Thường Kiệt, Phường 14, Quận 10, TP. Hồ Chí Minh',
+    address VARCHAR(255) DEFAULT 'Trường Đại học Bách Khoa – ĐHQG‑HCM, 268 Lý Thường Kiệt, Phường 14, Quận 10, TP. Hồ Chí Minh',
     
     -- Social links
     facebook_url VARCHAR(255),
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS contact_settings (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Insert dữ liệu mặc định
-INSERT INTO contact_settings (id, intro_content, activities_content, services_content, address, map_address) VALUES (1, 
+INSERT INTO contact_settings (intro_content, activities_content, services_content, address, map_address) VALUES ( 
 'Công ty cổ phần kiến trúc nội thất Home Decor là một trong số những công ty nội thất hàng đầu Việt Nam hoạt động trên những lĩnh vực chính như: Thiết kế kiến trúc, thiết kế nội thất, xây dựng và trang trí nội thất, được khách hàng tin tưởng và luôn được đánh giá là địa chỉ vàng cho những dịch vụ xây dựng nơi đem lại chất lượng tốt nhất và phục vụ khách hàng chu đáo nhất, đáp ứng mọi nhu cầu của khách hàng.
 
 HomeDecorvn được thành lập từ năm 2011 với lòng yêu nghề và tâm huyết của những kĩ sư trẻ và đội ngũ nhân viên lành nghề. Kiến trúc Homedecor đã không ngừng đổi mới, phát triển, nhanh chóng khẳng định được thương hiệu công ty nội thất uy tín và phong cách thiết kế của riêng mình.

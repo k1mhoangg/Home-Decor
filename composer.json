@@ -1,10 +1,18 @@
 {
-    "name": "webprogramming/homedecor",
-    "description": "A project of home shop",
+    "name": "solodev/homedecor",
+    "description": "Full-stack web application for home decor shop",
     "type": "project",
     "require": {
-        "php": ">=7",
-        "phpmailer/phpmailer": "^6.5"
+        "php": ">=8.3",
+        "phpmailer/phpmailer": "^6.9",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
     },
     "minimum-stability": "stable",
     "prefer-stable": true

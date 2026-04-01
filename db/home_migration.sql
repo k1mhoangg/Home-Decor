@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS home_settings (
     
     -- Hero section
     hero_title VARCHAR(255) DEFAULT 'Thiết Kế Nội Thất Cao Cấp',
-    hero_subtitle TEXT DEFAULT 'Mang đến không gian sống hoàn hảo cho gia đình bạn',
+    hero_subtitle VARCHAR(255) DEFAULT 'Mang đến không gian sống hoàn hảo cho gia đình bạn',
     hero_button_text VARCHAR(100) DEFAULT 'Khám phá ngay',
     hero_button_link VARCHAR(255) DEFAULT '/about',
     
@@ -16,15 +16,15 @@ CREATE TABLE IF NOT EXISTS home_settings (
     
     -- Featured products section
     featured_title VARCHAR(255) DEFAULT 'SẢN PHẨM NỔI BẬT',
-    featured_subtitle TEXT,
+    featured_subtitle VARCHAR(255),
     show_featured TINYINT(1) DEFAULT 1,
-    featured_product_ids TEXT DEFAULT NULL,
+    featured_product_ids VARCHAR(255) DEFAULT NULL,
     
     -- Recent products section
     recent_title VARCHAR(255) DEFAULT 'SẢN PHẨM MỚI NHẤT',
-    recent_subtitle TEXT,
+    recent_subtitle VARCHAR(255),
     show_recent TINYINT(1) DEFAULT 1,
-    recent_product_ids TEXT DEFAULT NULL,
+    recent_product_ids VARCHAR(255) DEFAULT NULL,
     
     -- Banner section
     show_banner TINYINT(1) DEFAULT 1,
