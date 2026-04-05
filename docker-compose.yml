@@ -14,7 +14,7 @@ services:
     container_name: ${APP_NAME:-app}_nginx
     restart: unless-stopped
     ports:
-      - "${NGINX_HTTP_PORT:-1331}:1331"
+      - "${NGINX_HTTP_PORT:-80}:80"
       - "${NGINX_HTTPS_PORT:-443}:443"
     volumes:
       - ./src:/var/www/html:ro
